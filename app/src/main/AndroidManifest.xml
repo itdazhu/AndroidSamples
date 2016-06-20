@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gyz.androidsamples">
+
+    <!-- 当我们声明该权限的的时候，系统允许我们通过重写activity中的onConfigurationChanged方法来捕获和修改某些配置信息 -->
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+
+    <!-- 这里一定要声明Android:configChanges属性，
+      该属性规定了我们可以在程序中捕获到的事件类型，多个事件类型用|分隔
+      配置后只调用activity中的onConfiguration方法
+ -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:name=".application.ASApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        >
+        <meta-data android:name="123" android:value="333"/>
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.lifecycle.ActivityA"
+            android:label="activity/LifeCycle"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+        >
+        <activity android:name=".activity.lifecycle.ActivityB" />
+        <activity android:name=".activity.lifecycle.ActivityC" />
+        <activity
+            android:name=".activity.lifecycle.DialogActivity"
+            android:theme="@android:style/Theme.Dialog"></activity>
+
+
+        <activity
+            android:name=".activity.ASActivityRecreate"
+            android:label="activity/Recreate">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.affinity.OneActivity"
+            android:label="activity/Affinity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.affinity.SecondActivity"
+            android:taskAffinity=":test" />
+
+        <!--sdk>3.2    android:configChanges="keyboardHidden|orientation|screenSize"-->
+        <!--sdk<3.2    android:configChanges="keyboardHidden|orientation|"-->
+        <activity
+            android:name=".activity.orientation.ASOrientation"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="activity/Orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.softInput.ASSoftInput"
+            android:label="activity/SoftInput">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.XMLtags.OneActivity"
+            android:alwaysRetainTaskState="true"
+            android:label="activity/XMLTags">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.XMLtags.TwoActivity" />
+
+
+        <activity
+            android:name=".activity.launchMode.ActivityA"
+            android:label="activity/LaunchMode"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.launchMode.ActivityB" />
+        <activity android:name=".activity.launchMode.ActivityC" />
+
+        <activity
+            android:name=".activity.features.ASRequestWindowFeature"
+            android:label="activity/RequestWindowFeature"
+            android:theme="@android:style/Theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+
+        <!--android:uiOptions="splitActionBarWhenNarrow"
+        强制actionbar底部显示-->
+        <activity
+            android:name=".activity.fullscreen.ASImmersive"
+            android:label="activity/ImmersiveMode"
+            android:theme="@android:style/Theme.Holo.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".intent.flags.ASIntentActivityFlagsA"
+            android:label="intent/Flag">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".intent.flags.ASIntentActivityFlagsB" />
+        <activity android:name=".intent.flags.ASIntentActivityFlagsC" />
+        <activity android:name=".intent.flags.ASIntentActivityFlagsD" />
+
+        <activity
+            android:name=".intent.actions.ASIntentActivityActionA"
+            android:label="intent/Action">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".intent.actions.ASIntentActivityActionB">
+            <intent-filter>
+                <action android:name="com.gyz.androidsamples.action.custom" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".intent.actions.ASIntentActivityActionC">
+            <intent-filter>
+                <action android:name="com.gyz.androidsamples.action.custom" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".managers.ASAlarmManager" android:label="manager/AlarmManager">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".managers.ASActivityManager" android:label="manager/ActivityManager">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".managers.ASPackageManager" android:label="manager/PackageManager">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".managers.ASWindowManager" android:label="manager/WindowManager">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".managers.ASPowerManager" android:label="manager/PowerManager">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
