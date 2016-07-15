@@ -9,8 +9,16 @@
       该属性规定了我们可以在程序中捕获到的事件类型，多个事件类型用|分隔
       配置后只调用activity中的onConfiguration方法
  -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".application.ASApplication"
@@ -213,7 +221,33 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".managers.ASConnectivityManager" android:label="manager/ConnectivityManager">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".managers.ASPowerManager" android:label="manager/PowerManager">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".managers.ASWifiManager" android:label="manager/WifiManager">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".managers.ASDownloadManager" android:label="manager/DownloadManager">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidSample" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.webview.ASWebview" android:label="views/Webview">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="androidSample" />
