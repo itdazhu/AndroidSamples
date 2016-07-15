@@ -5,6 +5,8 @@
     <file url="file://$PROJECT_DIR$/../TestProjects/workspace/MyMemoryTest/src/com/gyz/mymemorytest/MainActivity.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/../workspace/MyActivityTest/src/com/gyz/MainActivity.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/../workspace/MyApplicationConfigTest/src/com/gyz/MyApplication.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../workspace/MyDownLoadManagerTest/src/com/gyz/ApkClientActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/../workspace/MyDownLoadManagerTest/src/com/gyz/MainActivity.java" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
